@@ -1,0 +1,188 @@
+<section id="hmpg_sld">
+	<div class="hmpg_sld_wrap">
+		{% for page in page.home_slider %}
+		<div class="each-slide">
+			<div class="sld_tg">
+				<img class="img-fluid" src="/files/{{page.slider_image.path}}"/>
+				<div class="sld_content">
+					<h1>{{ page.banner_title }}</h1>  
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+$( document ).ready(function() {
+    $('.hmpg_sld_wrap').slick({
+		dots: true,
+		infinite: true,
+		speed: 300,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		centerMode: true,
+		centerPadding: '20vw',
+		responsive: [
+			{
+				breakpoint: 991,
+				settings: {
+					centerMode: false,
+					centerPadding: '0vw'
+				}
+			}
+		]
+	});
+});
+<style>
+section#hmpg_sld .hmpg_sld_wrap {
+	margin-bottom: 20px;
+}
+section#hmpg_sld .hmpg_sld_wrap .slick-dots {
+	bottom: 35px;
+}
+section#hmpg_sld .hmpg_sld_wrap .slick-dots li {
+	margin: 0 10px;
+	width: 35px;
+	height: 35px;
+}
+section#hmpg_sld .hmpg_sld_wrap .slick-dots li button {
+	width: 35px;
+	height: 35px;
+	border: 3px solid #fff;
+	border-radius: 50%;
+}
+section#hmpg_sld .hmpg_sld_wrap .slick-dots li button:before {
+	content: '';
+	width: 20px;
+	height: 20px;
+	background-color: transparent;
+	border-radius: 50%;
+	margin: 8px;
+}
+section#hmpg_sld .hmpg_sld_wrap .slick-dots li.slick-active button:before {
+	background-color: gray;
+}
+@media(min-width:992px) {
+	section#hmpg_sld .hmpg_sld_wrap .slick-dots {
+    	bottom: 55px;
+	}
+	section#hmpg_sld .hmpg_sld_wrap button.slick-prev.slick-arrow {
+		left: 22vw;
+		top: 40%;
+		z-index: 9999;
+		width: 92px;
+		height: 100px;
+	}
+	section#hmpg_sld .hmpg_sld_wrap button.slick-prev.slick-arrow::before {
+		content: "\f053";
+		font-family: 'FontAwesome';
+		color: #000;
+		font-size: 30px;
+		background-color: #ffffffcc;
+		padding: 35px;
+		opacity: 1;
+	}
+	section#hmpg_sld .hmpg_sld_wrap button.slick-next.slick-arrow {
+		right: 22vw;
+		top: 40%;
+		z-index: 9999;
+		width: 92px;
+		height: 100px;
+	}
+	section#hmpg_sld .hmpg_sld_wrap button.slick-next.slick-arrow::before {
+		content: "\f054";
+		font-family: 'FontAwesome';
+		color: #000;
+		font-size: 30px;
+		background-color: #ffffffcc;
+		padding: 35px;
+		opacity: 1;
+	}
+	.each-slide.slick-slide.slick-current.slick-active.slick-center .sld_tg {
+		border-left: 12px solid #fff;
+		border-right: 12px solid #fff;
+		position: relative;
+	}
+	.each-slide .sld_tg .sld_content {
+		position: absolute;
+		bottom: 60px;
+		left: 0;
+		right: 0;
+		z-index: 9999;
+		text-align: center;
+		padding: 0 50px;
+	}
+	.each-slide .sld_tg .sld_content h1 {
+		color: #fff;
+		font-size: 52px;
+	}
+	.each-slide.slick-slide.slick-current.slick-active.slick-center .sld_tg:before {
+		position: absolute;
+		content: '';
+		background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+		top: 40%;
+		bottom: -20px;
+		left: 0;
+		right: 0;
+	}
+	.each-slide.slick-slide:not(.slick-current.slick-active.slick-center) .sld_tg {
+		position: relative;
+		z-index: -1;
+	}
+	.each-slide.slick-slide:not(.slick-current.slick-active.slick-center) .sld_tg .sld_content h1 {
+		font-size: 0px;
+	}
+	.each-slide.slick-slide:not(.slick-current.slick-active.slick-center) .sld_tg:after {
+		position: absolute;
+		content: '';
+		background-color: #ffffff99;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+}
+@media(max-width:991px) {
+	.each-slide .sld_tg .sld_content {
+    	background-color: #000;
+    	padding: 15px 8px;
+    	text-align: center;
+	}
+	.each-slide .sld_tg .sld_content h1 {
+		font-size: 12px;
+		color: #fff;
+    	margin: 0;
+	}
+	section#hmpg_sld .hmpg_sld_wrap .slick-dots {
+		bottom: 55px;
+	}
+	section#hmpg_sld .hmpg_sld_wrap .slick-dots li {
+		width: 22px;
+		height: 22px;
+	}
+	section#hmpg_sld .hmpg_sld_wrap .slick-dots li button {
+		width: 22px;
+		height: 22px;
+		border: 2px solid #fff;
+	}
+	section#hmpg_sld .hmpg_sld_wrap .slick-dots li button:before {
+		width: 12px;
+		height: 12px;
+		margin: 5px;
+	}
+	section#hmpg_sld .hmpg_sld_wrap .slick-dots li.slick-active button:before {
+    	background-color: black;
+	}
+	section#hmpg_sld .hmpg_sld_wrap button.slick-prev.slick-arrow {
+		left: 25px;
+		z-index: 9999;
+	}
+	section#hmpg_sld .hmpg_sld_wrap button.slick-next.slick-arrow {
+		right: 25px;
+		z-index: 9999;
+	}
+	section#hmpg_sld .hmpg_sld_wrap button.slick-prev.slick-arrow::before,
+	section#hmpg_sld .hmpg_sld_wrap button.slick-next.slick-arrow::before {
+		font-size: 21px;
+	}
+}
+</style>
